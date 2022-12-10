@@ -1,30 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cell : MonoBehaviour {
-    [SerializeField] static GameObject blockPrefab;
     public BlocksContainer blocksContainer;
+    [SerializeField] private GameObject CenterCycle;
 
 
-    private byte energy = 0;
+    public static GameObject blockPrefab;
+    public byte energy = 0;
 
     private Transform tr;
 
-    public void AddBlock(GameObject block) {
-        block.transform.parent = tr;
+    public void AddBlock(Block block) {
+        energy++;
+        if(this.energy == 1) CenterCycle.SetActive(true);
+        blocksContainer.AddBlock(block);
     }
 
     public void AddNewBlock() {
-        GameObject block = Instantiate(blockPrefab);
-
-        block.GetComponent<Block>().ownerId = 0;
+        GameObject blockGO = Instantiate(blockPrefab);
+        Block block = blockGO.GetComponent<Block>();
+        
+        block.ownerId = 0;
 
         AddBlock(block);
-    }
-
-    public static void SetBlockPrefab(GameObject prf) {
-        blockPrefab = prf;
     }
 
 }

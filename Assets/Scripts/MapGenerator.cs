@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour {
@@ -8,32 +6,29 @@ public class MapGenerator : MonoBehaviour {
     private GameObject cellsContainer;
 
     private Cell[] cells;
-    [SerializeField] private GameObject cellPrefab;
-    [SerializeField] private GameObject blockPrefab;
+    public static GameObject cellPrefab;
 
 
     private void Start() {
         cellsContainer = GameObject.FindWithTag("CellsContainer");
 
-        Cell.SetBlockPrefab(blockPrefab);
-
         SpriteRenderer sr = cellPrefab.GetComponent<SpriteRenderer>();
         stepSize = 5f;
 
-        GenerateMap(5);
+        GenerateMap(3);
     }
 
 
     public void GenerateMap(byte size) {
         cells = new Cell[size*size];
 
-        float numForCentrating = Mathf.Floor((float)size/2); // for centrating
+        float numForCentering = Mathf.Floor((float)size/2); // for centering
 
         int arrayIndex = 0;
 
-        for(float i = 0; i <= numForCentrating*2; i++) {
-            for(float j = 0; j <= numForCentrating*2; j++) {
-                Cell cell = GenerateCell(i-numForCentrating, j-numForCentrating);
+        for(float i = 0; i <= numForCentering*2; i++) {
+            for(float j = 0; j <= numForCentering*2; j++) {
+                Cell cell = GenerateCell(i-numForCentering, j-numForCentering);
 
                 cells[arrayIndex] = cell;
 
@@ -49,7 +44,7 @@ public class MapGenerator : MonoBehaviour {
 
                 bool[] allowedContainers = {top, left, right, bottom};
 
-                cell.blocksContainer.SetAlowingContainers(allowedContainers);
+                cell.blocksContainer.SetAllowedContainers(allowedContainers);
 
 
 

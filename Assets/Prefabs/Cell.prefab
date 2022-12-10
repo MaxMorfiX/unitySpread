@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3803922018287060436}
   - component: {fileID: 1988430908210738566}
   - component: {fileID: 3803922018287060439}
-  - component: {fileID: 3650133371850889132}
+  - component: {fileID: 9107184562162585935}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Cell
@@ -116,6 +116,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8074197076773059087}
+  - {fileID: 7788112807112639208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocksContainer: {fileID: 930989585375997002}
+  CenterCycle: {fileID: 8324471333633300239}
+  energy: 0
 --- !u!212 &3803922018287060439
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -184,35 +187,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3650133371850889132
-MonoBehaviour:
+--- !u!61 &9107184562162585935
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3803922018287060438}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1988430908210738566}
-          m_TargetAssemblyTypeName: Cell, Assembly-CSharp
-          m_MethodName: WhenClicked
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.36, y: 1.36}
+    newSize: {x: 0.68, y: 0.68}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.7, y: 3.7}
+  m_EdgeRadius: 0
 --- !u!1 &4064848176427974897
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +246,6 @@ Transform:
   - {fileID: 8013685793437018895}
   - {fileID: 3259069000885469179}
   - {fileID: 4868353446095933097}
-  - {fileID: 7788112807112639208}
   m_Father: {fileID: 3803922018287060436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -447,7 +446,6 @@ GameObject:
   - component: {fileID: 7788112807112639208}
   - component: {fileID: 3725346692101469981}
   - component: {fileID: 8857526926035790706}
-  - component: {fileID: 3264531286077163604}
   m_Layer: 0
   m_Name: CenterCycle
   m_TagString: Untagged
@@ -467,8 +465,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8074197076773059087}
-  m_RootOrder: 4
+  m_Father: {fileID: 3803922018287060436}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3725346692101469981
 MonoBehaviour:
@@ -483,6 +481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocksContainer: {fileID: 0}
+  CenterCycle: {fileID: 0}
+  energy: 0
 --- !u!212 &8857526926035790706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -535,19 +535,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3264531286077163604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8324471333633300239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
 --- !u!1 &8941344710765162457
 GameObject:
   m_ObjectHideFlags: 0
