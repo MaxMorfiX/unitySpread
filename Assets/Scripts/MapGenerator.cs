@@ -15,7 +15,7 @@ public class MapGenerator : MonoBehaviour {
         SpriteRenderer sr = cellPrefab.GetComponent<SpriteRenderer>();
         stepSize = 5f;
 
-        GenerateMap(3);
+        GenerateMap(9);
     }
 
 
