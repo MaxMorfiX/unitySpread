@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour {
     public byte ownerId = 0;
-    public Transform transform;
+    public new Transform transform;
 
     public Vector3 velocity;
     public GameObject recentCell;
