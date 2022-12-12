@@ -15,7 +15,7 @@ public class MapGenerator : MonoBehaviour {
         SpriteRenderer sr = cellPrefab.GetComponent<SpriteRenderer>();
         stepSize = 5f;
 
-        GenerateMap(9);
+        GenerateMap(4);
     }
 
 
@@ -26,9 +26,9 @@ public class MapGenerator : MonoBehaviour {
 
         int arrayIndex = 0;
 
-        for(float i = 0; i <= numForCentering*2; i++) {
-            for(float j = 0; j <= numForCentering*2; j++) {
-                Cell cell = GenerateCell(i-numForCentering, j-numForCentering);
+        for(int i = 0; i < size; i++) {
+            for(int j = 0; j < size; j++) {
+                Cell cell = GenerateCell(i, j, size, size);
 
                 cells[arrayIndex] = cell;
 
@@ -54,12 +54,15 @@ public class MapGenerator : MonoBehaviour {
         }
     }
 
-    private Cell GenerateCell(float i, float j) {
+    private Cell GenerateCell(int i, int j, int maxI, int maxJ) {
         GameObject cell = Instantiate(cellPrefab, cellsContainer.transform);
 
-        Vector3 pos = new Vector3(i*stepSize, j*stepSize, 0);
+        Vector3 pos = new Vector3(i, j, 0);
+
+        Vector3 centratingVec = new Vector3((maxI-1)/2f, (maxJ-1)/2f, 0);
+        pos -= centratingVec;
         
-        cell.GetComponent<Transform>().position = pos;
+        cell.GetComponent<Transform>().position = pos*stepSize;
 
         return cell.GetComponent<Cell>();
     }
