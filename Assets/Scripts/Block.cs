@@ -7,6 +7,8 @@ public class Block : MonoBehaviour {
     public Vector3 velocity;
     public GameObject recentCell;
 
+    public static Color32[] playersColors;
+
 
 
     
@@ -27,6 +29,12 @@ public class Block : MonoBehaviour {
 
         velocity = new Vector3();
         collider.gameObject.GetComponent<Cell>().AddBlock(this);
+    }
+
+    public void SetOwner(byte ownerId) {
+        Debug.Log("recent: " + this.ownerId + ", new: " + ownerId);
+        this.ownerId = ownerId;
+        GetComponent<SpriteRenderer>().color = playersColors[ownerId];
     }
 
 

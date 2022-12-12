@@ -6,6 +6,8 @@ public class Cell : MonoBehaviour {
 
 
     public static GameObject blockPrefab;
+    public static Color32[] playersColors;
+    public static PlayersController playersController;
     public byte energy = 0;
     public byte maxEnergy = 0;
 
@@ -16,6 +18,8 @@ public class Cell : MonoBehaviour {
         if(this.energy == 1) centerCycle.SetActive(true);
         blocksContainer.AddBlock(block);
 
+        centerCycle.GetComponent<SpriteRenderer>().color = playersColors[block.ownerId];
+
         if(energy >= maxEnergy) {
             blocksContainer.ThrowAwayBlocks();
             centerCycle.SetActive(false);
@@ -23,13 +27,16 @@ public class Cell : MonoBehaviour {
         }
     }
 
-    public void AddNewBlock() {
+    public void AddNewBlock(byte blockOwner) {
         GameObject blockGO = Instantiate(blockPrefab);
         Block block = blockGO.GetComponent<Block>();
         
-        block.ownerId = 0;
+        block.SetOwner(blockOwner);
 
         AddBlock(block);
+    }
+    public void AddNewBlock() {
+        AddNewBlock(playersController.currPlayer);
     }
 
 }

@@ -30,11 +30,16 @@ public class BlocksContainer : MonoBehaviour {
         owner.maxEnergy = (byte)(allowedI);
     }
 
-    public void AddBlock(Block block) {
-        block.transform.parent = allowedContainers[owner.energy-1].transform;
-        block.transform.localPosition = new Vector3();
-        block.recentCell = owner.gameObject;
-        blocks[owner.energy - 1] = block;
+    public void AddBlock(Block newBlock) {
+        newBlock.transform.parent = allowedContainers[owner.energy-1].transform;
+        newBlock.transform.localPosition = new Vector3();
+        newBlock.recentCell = owner.gameObject;
+        blocks[owner.energy - 1] = newBlock;
+
+        foreach(Block block in blocks) {
+            if(block == null) continue;
+            block.SetOwner(newBlock.ownerId);
+        }
     }
 
     public void ThrowAwayBlocks() {
@@ -44,5 +49,7 @@ public class BlocksContainer : MonoBehaviour {
             Vector3 vel = (block.transform.localPosition + block.transform.parent.localPosition)*0.01f;
             block.velocity = vel;
         }
+
+        Array.Clear(blocks, 0, blocks.Length);
     }
 }
