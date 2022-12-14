@@ -18,14 +18,14 @@ public class Block : MonoBehaviour {
 
 
     private void Update() {
-        transform.position += velocity;
+        transform.position += velocity*Time.deltaTime;
     }
 
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if(velocity == new Vector3()) return;
         if(collider.gameObject == recentCell) return;
-        if(collider.gameObject.tag != "Cell") return;
+        if(!collider.gameObject.CompareTag("Cell")) return;
 
         velocity = new Vector3();
         collider.gameObject.GetComponent<Cell>().AddBlock(this);

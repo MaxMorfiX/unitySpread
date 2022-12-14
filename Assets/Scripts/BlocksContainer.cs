@@ -46,7 +46,7 @@ public class BlocksContainer : MonoBehaviour {
         foreach(Block block in blocks) {
             if(block == null) continue;
 
-            Vector3 vel = (block.transform.localPosition + block.transform.parent.localPosition)*0.01f;
+            Vector3 vel = (block.transform.localPosition + block.transform.parent.localPosition)*2f;
             block.velocity = vel;
         }
 

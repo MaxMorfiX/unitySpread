@@ -4,6 +4,7 @@ public class MapGenerator : MonoBehaviour {
 
     private float stepSize;
     private GameObject cellsContainer;
+    public byte mapSize = 5;
 
     private Cell[] cells;
     public static GameObject cellPrefab;
@@ -15,7 +16,7 @@ public class MapGenerator : MonoBehaviour {
         SpriteRenderer sr = cellPrefab.GetComponent<SpriteRenderer>();
         stepSize = 5f;
 
-        GenerateMap(4);
+        GenerateMap(mapSize);
     }
 
 
