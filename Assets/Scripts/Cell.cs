@@ -3,6 +3,7 @@ using UnityEngine;
 public class Cell : MonoBehaviour {
     public BlocksContainer blocksContainer;
     [SerializeField] private GameObject centerCycle;
+    public static Cell[] Cells;
 
 
     public static GameObject blockPrefab;

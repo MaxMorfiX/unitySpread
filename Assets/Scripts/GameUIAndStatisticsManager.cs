@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameUIAndStatisticsManager : MonoBehaviour {
 
+    // public static PlayersController playersController;
+
     [SerializeField] Text[] playerScoresTexts = new Text[4];
     [SerializeField] Image[] currPlayersImages = new Image[4];
 
@@ -27,6 +29,13 @@ public class GameUIAndStatisticsManager : MonoBehaviour {
             }
 
             img.color = new Color32(color.r, color.g, color.b, a);
+        }
+    }
+
+    public void showCurrPlayerScores(byte[] scores) {
+        for(byte i = 0; i < scores.Length; i++) {
+            Debug.Log(scores.Length + "   " + playerScoresTexts.Length);
+            playerScoresTexts[i].text = scores[i].ToString();
         }
     }
 

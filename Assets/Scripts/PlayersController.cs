@@ -9,9 +9,14 @@ public class PlayersController : MonoBehaviour {
     public byte currPlayer = 0;
     public byte maxPlayers = 4;
     public bool changePlayersByButtons = false;
+    public bool calculateScoreEveryFrame = true;
     
     private void Update() {
         if(changePlayersByButtons) HandleChangingPlayersByButtons();
+
+        if(calculateScoreEveryFrame || Block.NowFlyingBlocksCount == 0) {
+            gameUIAndStatisticsManager.showCurrPlayerScores(calcPlayerScores());
+        }
     }
 
     private void HandleChangingPlayersByButtons() {
@@ -36,6 +41,19 @@ public class PlayersController : MonoBehaviour {
         // Debug.Log("next player: " + currPlayer);
 
         gameUIAndStatisticsManager.ShowCurrPlayer(currPlayer);
+    }
+
+    public byte[] calcPlayerScores() {
+
+        byte[] playerScores = new byte[4];
+
+        foreach(Cell cell in Cell.Cells) {
+            if(cell.isFilled) {
+                playerScores[cell.playerOwnerId]++;
+            }
+        }
+
+        return playerScores;
     }
 
 }
