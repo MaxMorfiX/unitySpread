@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ClickManager : MonoBehaviour {
 
+    public static PlayersController playersController;
+
     private void Update() {
         if (Input.GetMouseButtonUp(0)) {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -9,7 +11,7 @@ public class ClickManager : MonoBehaviour {
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Cell")) {
-                hit.collider.gameObject.GetComponent<Cell>().AddNewBlock();
+                hit.collider.gameObject.GetComponent<Cell>().OnClick();
             }
         }
     }

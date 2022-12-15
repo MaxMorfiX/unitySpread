@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,9 @@ public class CameraController : MonoBehaviour {
             recentMousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             recentPos = cam.ScreenToWorldPoint(transform.position);
         }
-        if(Input.GetMouseButton(1)) moveByMouse();
+        if(Input.GetMouseButton(1)) {
+            moveByMouse();
+        }
 
         cam.orthographicSize -= zoomChangeSpeed*cam.orthographicSize*Input.GetAxis("Mouse ScrollWheel")*Time.deltaTime;
     }

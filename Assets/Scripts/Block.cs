@@ -32,7 +32,7 @@ public class Block : MonoBehaviour {
     }
 
     public void SetOwner(byte ownerId) {
-        Debug.Log("recent: " + this.ownerId + ", new: " + ownerId);
+        // Debug.Log("recent: " + this.ownerId + ", new: " + ownerId);
         this.ownerId = ownerId;
         GetComponent<SpriteRenderer>().color = playersColors[ownerId];
     }

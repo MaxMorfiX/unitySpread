@@ -4,6 +4,7 @@ public class BasicValuesSetter : MonoBehaviour {
     public GameObject cellPrefab;
     public GameObject blockPrefab;
     public PlayersController playersController;
+    public GameUIAndStatisticsManager gameUIAndStatisticsManager;
     public Color32[] playersColors = new Color32[4];
 
     private void Start() {
@@ -12,5 +13,7 @@ public class BasicValuesSetter : MonoBehaviour {
         MapGenerator.cellPrefab = cellPrefab;
         Block.playersColors = playersColors;
         Cell.playersColors = playersColors;
+        ClickManager.playersController = playersController;
+        PlayersController.gameUIAndStatisticsManager = gameUIAndStatisticsManager;
     }
 }
