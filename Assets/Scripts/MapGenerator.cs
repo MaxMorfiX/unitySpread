@@ -6,8 +6,8 @@ public class MapGenerator : MonoBehaviour {
     private GameObject cellsContainer;
     public byte mapSize = 5;
 
-    private Cell[] cells;
     public static GameObject cellPrefab;
+    public static GameObject cameraGO;
 
 
     private void Start() {
@@ -20,8 +20,8 @@ public class MapGenerator : MonoBehaviour {
     }
 
 
-    public void GenerateMap(byte size) {
-        cells = new Cell[size*size];
+    public Cell[] GenerateMap(byte size) {
+        Cell[] cells = new Cell[size*size];
 
         float numForCentering = Mathf.Floor((float)size/2); // for centering
 
@@ -53,6 +53,12 @@ public class MapGenerator : MonoBehaviour {
                 arrayIndex++;
             }
         }
+
+        float camSize = size*stepSize*0.7f;
+
+        cameraGO.GetComponent<Camera>().orthographicSize = camSize;
+
+        return cells;
     }
 
     private Cell GenerateCell(int i, int j, int maxI, int maxJ) {

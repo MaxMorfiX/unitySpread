@@ -1,10 +1,20 @@
 using UnityEngine;
 
 public class Block : MonoBehaviour {
+
+    public static byte NowFlyingBlocksCount = 0;
+
     public byte ownerId = 0;
     public new Transform transform;
+    private Vector3 _velocity = new Vector3();
 
-    public Vector3 velocity;
+    public Vector3 velocity {get {return _velocity;}
+        set {
+            _velocity = value;
+
+            if(velocity != Vector3.zero)
+                NowFlyingBlocksCount++;    
+        }}
     public GameObject recentCell;
 
     public static Color32[] playersColors;
@@ -28,6 +38,7 @@ public class Block : MonoBehaviour {
         if(!collider.gameObject.CompareTag("Cell")) return;
 
         velocity = new Vector3();
+        NowFlyingBlocksCount--;
         collider.gameObject.GetComponent<Cell>().AddBlock(this);
     }
 
@@ -36,7 +47,5 @@ public class Block : MonoBehaviour {
         this.ownerId = ownerId;
         GetComponent<SpriteRenderer>().color = playersColors[ownerId];
     }
-
-
 
 }

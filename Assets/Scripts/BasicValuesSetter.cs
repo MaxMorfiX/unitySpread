@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class BasicValuesSetter : MonoBehaviour {
+    public GameObject cameraGO;
     public GameObject cellPrefab;
     public GameObject blockPrefab;
     public PlayersController playersController;
@@ -11,6 +12,7 @@ public class BasicValuesSetter : MonoBehaviour {
         Cell.blockPrefab = blockPrefab;
         Cell.playersController = playersController;
         MapGenerator.cellPrefab = cellPrefab;
+        MapGenerator.cameraGO = cameraGO;
         Block.playersColors = playersColors;
         Cell.playersColors = playersColors;
         ClickManager.playersController = playersController;

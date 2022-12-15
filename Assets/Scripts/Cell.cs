@@ -50,7 +50,8 @@ public class Cell : MonoBehaviour {
     }
 
     public void OnClick() {
-        if(isFilled && playerOwnerId != playersController.currPlayer) {
+        if(isFilled && playerOwnerId != playersController.currPlayer ||
+           Block.NowFlyingBlocksCount > 0) {
             return;
         }
         // Debug.Log("isFilled: " + isFilled + ", playerOwnerId: " + playerOwnerId + ", currPlayer: " + playersController.currPlayer);
