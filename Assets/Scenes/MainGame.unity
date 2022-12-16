@@ -268,10 +268,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc13185ffce665b47b12a1de4fbd6e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScores: 00000000
+  round: 0
   currPlayer: 0
-  maxPlayers: 3
+  maxPlayers: 4
   changePlayersByButtons: 0
   calculateScoreEveryFrame: 1
+  arePlayersInGame: 00000000
 --- !u!1 &476766875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0455d9709a310d74d9507ef24ddd6636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 47
+  mapSize: 4
 --- !u!1001 &27465170777727861
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ public class PlayersController : MonoBehaviour {
 
     public static GameUIAndStatisticsManager gameUIAndStatisticsManager;
 
+    public byte[] playerScores = new byte[4];
+
+    public byte round = 0;
     public byte currPlayer = 0;
     public byte maxPlayers = 4;
     public bool changePlayersByButtons = false;
@@ -22,8 +25,23 @@ public class PlayersController : MonoBehaviour {
     private void Update() {
         if(changePlayersByButtons) HandleChangingPlayersByButtons();
 
-        if(calculateScoreEveryFrame || Block.NowFlyingBlocksCount == 0) {
-            gameUIAndStatisticsManager.showCurrPlayerScores(calcPlayerScores());
+        if(!arePlayersInGame[currPlayer]) {
+            NextPlayer();
+        }
+
+        if(!(calculateScoreEveryFrame || Block.NowFlyingBlocksCount == 0)) return;
+
+        playerScores = calcPlayerScores();
+        gameUIAndStatisticsManager.showCurrPlayerScores(playerScores);
+
+        if(round == 0) return;
+
+        for(byte i = 0; i < playerScores.Length; i++) {
+            if(playerScores[i] == 0) {
+                arePlayersInGame[i] = false;
+            } else {
+                arePlayersInGame[i] = true;
+            }
         }
     }
 
@@ -44,6 +62,12 @@ public class PlayersController : MonoBehaviour {
         currPlayer += 1;
         if(currPlayer >= maxPlayers) { 
             currPlayer = 0;
+            round++;
+        }
+
+        if(!arePlayersInGame[currPlayer]) {
+            NextPlayer();
+            return;
         }
 
         // Debug.Log("next player: " + currPlayer);
