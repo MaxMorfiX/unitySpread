@@ -10,6 +10,14 @@ public class PlayersController : MonoBehaviour {
     public byte maxPlayers = 4;
     public bool changePlayersByButtons = false;
     public bool calculateScoreEveryFrame = true;
+    public bool[] arePlayersInGame = new bool[4];
+
+    private void Start() {
+        for(byte i = 0; i < maxPlayers; i++) {
+            arePlayersInGame[i] = true;
+        }
+
+    }
     
     private void Update() {
         if(changePlayersByButtons) HandleChangingPlayersByButtons();

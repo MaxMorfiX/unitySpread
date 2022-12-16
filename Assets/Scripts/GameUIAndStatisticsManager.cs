@@ -34,7 +34,7 @@ public class GameUIAndStatisticsManager : MonoBehaviour {
 
     public void showCurrPlayerScores(byte[] scores) {
         for(byte i = 0; i < scores.Length; i++) {
-            Debug.Log(scores.Length + "   " + playerScoresTexts.Length);
+            // Debug.Log(scores.Length + "   " + playerScoresTexts.Length);
             playerScoresTexts[i].text = scores[i].ToString();
         }
     }

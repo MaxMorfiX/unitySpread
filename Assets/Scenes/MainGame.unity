@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0455d9709a310d74d9507ef24ddd6636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 3
+  mapSize: 47
 --- !u!1001 &27465170777727861
 PrefabInstance:
   m_ObjectHideFlags: 0
