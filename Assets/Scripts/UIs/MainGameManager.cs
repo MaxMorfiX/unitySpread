@@ -12,4 +12,8 @@ public class MainGameManager : MonoBehaviour {
         BasicValuesSetter.ResetValues();
         SceneManager.LoadScene("MainGame");
     }
+
+    public void NewGame() {
+        SceneManager.LoadScene("NewGameEditor");
+    }
 }

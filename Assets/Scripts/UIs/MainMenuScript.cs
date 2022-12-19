@@ -9,8 +9,7 @@ public class MainMenuScript : MonoBehaviour {
     [SerializeField] Text gameVersionText;
 
     public void StartGame() {
-        BasicValuesSetter.ResetValues();
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("NewGameEditor");
     }
 
     public void ExitGame() {

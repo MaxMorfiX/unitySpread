@@ -4,7 +4,7 @@ public class MapGenerator : MonoBehaviour {
 
     private float stepSize;
     private GameObject cellsContainer;
-    public static byte mapSize = 5;
+    public static byte mapSize = 3;
 
     public static GameObject cellPrefab;
     public static GameObject cameraGO;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public float zoomChangeSpeed = 10f;
+    public float zoomChangeSpeed = 50f;
 
 
     new Transform transform;
@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour {
             moveByMouse();
         }
 
-        cam.orthographicSize -= zoomChangeSpeed*cam.orthographicSize*Input.GetAxis("Mouse ScrollWheel")*Time.deltaTime;
+        cam.orthographicSize -= zoomChangeSpeed * cam.orthographicSize * Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime;
     }
 
     private void moveByMouse() {
