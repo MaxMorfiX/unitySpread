@@ -9,9 +9,9 @@ public class PlayersController : MonoBehaviour {
 
     public byte[] playerScores = new byte[4];
 
+    public static byte maxPlayers = 3;
     public byte round = 0;
     public byte currPlayer = 0;
-    public byte maxPlayers = 4;
     public bool changePlayersByButtons = false;
     public bool calculateScoreEveryFrame = true;
     public bool[] arePlayersInGame = new bool[4];
