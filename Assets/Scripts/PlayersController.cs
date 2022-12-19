@@ -37,8 +37,14 @@ public class PlayersController : MonoBehaviour {
 
         if(round == 0) return;
 
-        for(byte i = 0; i < playerScores.Length; i++) {
-            if(playerScores[i] == 0) {
+        int[] playersBlocksCount = new int[4];
+
+        foreach(Block block in Block.blocks) {
+            playersBlocksCount[block.ownerId] ++;
+        }
+
+        for(byte i = 0; i < playersBlocksCount.Length; i++) {
+            if(playersBlocksCount[i] == 0) {
                 arePlayersInGame[i] = false;
             } else {
                 arePlayersInGame[i] = true;

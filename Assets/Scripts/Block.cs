@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Block : MonoBehaviour {
 
     public static byte NowFlyingBlocksCount = 0;
+    public static Block[] blocks = new Block[0];
 
     public byte ownerId = 0;
     public new Transform transform;
@@ -24,6 +26,9 @@ public class Block : MonoBehaviour {
     
     private void OnEnable() {
         transform = GetComponent<Transform>();
+
+        Array.Resize(ref blocks, blocks.Length + 1);
+        blocks[blocks.Length - 1] = this;
     }
 
 

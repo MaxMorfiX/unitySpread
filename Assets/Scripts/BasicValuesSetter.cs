@@ -19,6 +19,7 @@ public class BasicValuesSetter : MonoBehaviour {
         Cell.playersColors = playersColors;
         GameWinManager.playersColors = playersColors;
         GameWinManager.playersColorsNames = playersColorsNames;
+        GameWinManager.playersController = playersController;
         ClickManager.playersController = playersController;
         PlayersController.gameUIAndStatisticsManager = gameUIAndStatisticsManager;
         PlayersController.gameWinManager = gameWinManager;
