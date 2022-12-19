@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayersController : MonoBehaviour {
 
     public static GameUIAndStatisticsManager gameUIAndStatisticsManager;
+    public static GameWinManager gameWinManager;
 
     public byte[] playerScores = new byte[4];
 
