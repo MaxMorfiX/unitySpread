@@ -41,11 +41,13 @@ public class PlayersController : MonoBehaviour {
 
         foreach(Block block in Block.blocks) {
             playersBlocksCount[block.ownerId] ++;
+            // Debug.Log(block.ownerId);
         }
 
         for(byte i = 0; i < playersBlocksCount.Length; i++) {
             if(playersBlocksCount[i] == 0) {
                 arePlayersInGame[i] = false;
+                // Debug.Log(playersBlocksCount[i] + ", " + i);
             } else {
                 arePlayersInGame[i] = true;
             }

@@ -26,4 +26,9 @@ public class BasicValuesSetter : MonoBehaviour {
         PlayersController.gameWinManager = gameWinManager;
         // GameUIAndStatisticsManager.playersController = playersController;
     }
+
+    public static void ResetValues() {
+        Block.NowFlyingBlocksCount = 0;
+        Block.blocks = new Block[0];
+    }
 }
