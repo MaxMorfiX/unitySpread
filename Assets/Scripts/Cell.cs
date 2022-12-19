@@ -4,6 +4,7 @@ public class Cell : MonoBehaviour {
     public BlocksContainer blocksContainer;
     [SerializeField] private GameObject centerCycle;
     public static Cell[] Cells;
+    public static GameWinManager gameWinManager;
 
 
     public static GameObject blockPrefab;
@@ -54,7 +55,8 @@ public class Cell : MonoBehaviour {
         
         if(isFilled && playerOwnerId != playersController.currPlayer ||
            Block.NowFlyingBlocksCount > 0 || 
-           !playersController.arePlayersInGame[playersController.currPlayer]) {
+           !playersController.arePlayersInGame[playersController.currPlayer] ||
+           gameWinManager.isGameStopped) {
             return;
         }
         // Debug.Log("isFilled: " + isFilled + ", playerOwnerId: " + playerOwnerId + ", currPlayer: " + playersController.currPlayer);

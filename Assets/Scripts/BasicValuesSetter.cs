@@ -13,14 +13,15 @@ public class BasicValuesSetter : MonoBehaviour {
     private void Start() {
         Cell.blockPrefab = blockPrefab;
         Cell.playersController = playersController;
+        Cell.playersColors = playersColors;
+        Cell.gameWinManager = gameWinManager;
+        Block.playersColors = playersColors;
         MapGenerator.cellPrefab = cellPrefab;
         MapGenerator.cameraGO = cameraGO;
-        Block.playersColors = playersColors;
-        Cell.playersColors = playersColors;
+        ClickManager.playersController = playersController;
         GameWinManager.playersColors = playersColors;
         GameWinManager.playersColorsNames = playersColorsNames;
         GameWinManager.playersController = playersController;
-        ClickManager.playersController = playersController;
         PlayersController.gameUIAndStatisticsManager = gameUIAndStatisticsManager;
         PlayersController.gameWinManager = gameWinManager;
         // GameUIAndStatisticsManager.playersController = playersController;

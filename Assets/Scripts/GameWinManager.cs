@@ -8,16 +8,19 @@ public class GameWinManager : MonoBehaviour {
     [SerializeField] GameObject gameWinMenu;
     [SerializeField] Text gameWinText;
     [SerializeField] Text playerColorHinterText;
+    public bool isGameStopped = false;
     public static Color32[] playersColors = new Color32[4];
     public static string[] playersColorsNames = new string[4];
     public static PlayersController playersController;
 
     public void Show() {
         gameWinMenu.SetActive(true);
+        isGameStopped = true;
     }
 
     public void Hide() {
         gameWinMenu.SetActive(false);
+        isGameStopped = false;
     }
 
     public void Show(byte playerId) {
@@ -30,7 +33,7 @@ public class GameWinManager : MonoBehaviour {
 
     private void Update() {
 
-        if(gameWinMenu.activeInHierarchy || playersController.round == 0) return;
+        if(isGameStopped || playersController.round == 0) return;
 
         byte countOfPlayersInGame = 0;
         int[] playersBlocksCount = new int[4];
@@ -50,4 +53,7 @@ public class GameWinManager : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        Hide();
+    }
 }
