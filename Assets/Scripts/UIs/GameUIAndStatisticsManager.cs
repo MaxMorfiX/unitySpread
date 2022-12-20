@@ -12,6 +12,15 @@ public class GameUIAndStatisticsManager : MonoBehaviour {
 
     private void Start() {
         ShowCurrPlayer(0);
+
+        for(byte i = 0; i < currPlayersImages.Length; i++) {
+            if(i >= PlayersController.maxPlayers) {
+                currPlayersImages[i].gameObject.SetActive(false);
+                playerScoresTexts[i].color = new Color32(255, 255, 255, 100);
+                Image img = playerScoresTexts[i].rectTransform.parent.gameObject.GetComponent<Image>();
+                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 100);
+            }
+        }
     }
 
     public void ShowCurrPlayer(byte playerId) {
