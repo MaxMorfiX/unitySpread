@@ -41,9 +41,9 @@ public class MainGameManager : MonoBehaviour {
         float y = 0f;
 
         if(areSettingsOpened) 
-            y = settings.anchoredPosition.y-settingsMoveSpeed;
+            y = settings.anchoredPosition.y-settingsMoveSpeed*Time.deltaTime;
         else if(!areSettingsOpened) 
-            y = settings.anchoredPosition.y+settingsMoveSpeed;
+            y = settings.anchoredPosition.y+settingsMoveSpeed*Time.deltaTime;
 
         y = Mathf.Clamp(y, 0, settings.rect.height);
 
