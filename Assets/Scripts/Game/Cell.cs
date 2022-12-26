@@ -3,6 +3,7 @@ using UnityEngine;
 public class Cell : MonoBehaviour {
     public BlocksContainer blocksContainer;
     [SerializeField] private GameObject centerCycle;
+    public static AudioClip explosionSound;
     public static Cell[] Cells;
     public static GameWinManager gameWinManager;
 
@@ -31,6 +32,9 @@ public class Cell : MonoBehaviour {
         playerOwnerId = block.ownerId;
 
         if(energy >= maxEnergy) {
+            if(MainGameManager.playSounds) {
+                playersController.GetComponent<AudioSource>().PlayOneShot(explosionSound);
+            }
             blocksContainer.ThrowAwayBlocks();
             centerCycle.SetActive(false);
             energy -= maxEnergy;

@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainGameManager : MonoBehaviour {
 
     public float settingsMoveSpeed = 1.5f;
+    public static bool playSounds = false;
 
     [SerializeField] RectTransform settings;
+    [SerializeField] Sprite muteButton;
+    [SerializeField] Sprite unmuteButton;
+    [SerializeField] Image toggleSoundsButtonImg;
     private bool areSettingsOpened = false;
     private int frameOfMovingSettingsAnimation = 0;
 
@@ -52,6 +56,15 @@ public class MainGameManager : MonoBehaviour {
 
     private void Start() {
         settings.anchoredPosition = new Vector2(settings.anchoredPosition.x, settings.rect.height);
+        
+        if(playSounds) toggleSoundsButtonImg.sprite = unmuteButton;
+        else if(!playSounds) toggleSoundsButtonImg.sprite = muteButton;
     }
 
+    public void TogglePlaySounds() {
+        playSounds = !playSounds;
+
+        if(playSounds) toggleSoundsButtonImg.sprite = unmuteButton;
+        else if(!playSounds) toggleSoundsButtonImg.sprite = muteButton;
+    }
 }

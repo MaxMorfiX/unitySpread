@@ -4,6 +4,7 @@ public class BasicValuesSetter : MonoBehaviour {
     public GameObject cameraGO;
     public GameObject cellPrefab;
     public GameObject blockPrefab;
+    public AudioClip cellExplosionSound;
     public PlayersController playersController;
     public GameWinManager gameWinManager;
     public GameUIAndStatisticsManager gameUIAndStatisticsManager;
@@ -15,6 +16,7 @@ public class BasicValuesSetter : MonoBehaviour {
         Cell.playersController = playersController;
         Cell.playersColors = playersColors;
         Cell.gameWinManager = gameWinManager;
+        Cell.explosionSound = cellExplosionSound;
         Block.playersColors = playersColors;
         MapGenerator.cellPrefab = cellPrefab;
         MapGenerator.cameraGO = cameraGO;
