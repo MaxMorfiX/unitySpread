@@ -9,6 +9,7 @@ public class Cell : MonoBehaviour {
 
 
     public static GameObject blockPrefab;
+    public static GameObject lastClickedCellPointer;
     public static Color32[] playersColors;
     public static PlayersController playersController;
 
@@ -63,6 +64,12 @@ public class Cell : MonoBehaviour {
            gameWinManager.isGameStopped) {
             return;
         }
+
+        if(playersController.round < 1 && playersController.currPlayer == 0) lastClickedCellPointer.SetActive(true);
+        lastClickedCellPointer.GetComponent<SpriteRenderer>().color = playersColors[playersController.currPlayer];
+        lastClickedCellPointer.GetComponent<Transform>().parent = transform;
+        lastClickedCellPointer.GetComponent<Transform>().localPosition = new Vector3();
+
         // Debug.Log("isFilled: " + isFilled + ", playerOwnerId: " + playerOwnerId + ", currPlayer: " + playersController.currPlayer);
         AddNewBlock();
 
